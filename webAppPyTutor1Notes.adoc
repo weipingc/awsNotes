@@ -1,0 +1,17 @@
+Web application by Python tutorial 1
+====================================
+
+----
+ec2-user:~/environment $ git clone -b python https://github.com/aws-samples/aws-modern-application-workshop.git
+ec2-user:~/environment $ cd aws-modern-application-workshop/
+ec2-user:~/environment/aws-modern-application-workshop (python) $ aws s3 mb s3://web-app-py-tutor1
+ec2-user:~/environment/aws-modern-application-workshop (python) $ aws s3 website s3://web-app-py-tutor1 --index-document index.html
+ec2-user:~/environment/aws-modern-application-workshop (python) $ aws s3api put-bucket-policy --bucket web-app-py-tutor1 --policy file://~/environment/aws-modern-application-workshop/module-1/aws-cli/website-bucket-policy.json
+ec2-user:~/environment/aws-modern-application-workshop (python) $ aws s3 cp ~/environment/aws-modern-application-workshop/module-1/web/index.html s3://web-app-py-tutor1
+
+ec2-user:~/environment/aws-modern-application-workshop (python) $ aws cloudformation create-stack --stack-name MythicalMysfitsCoreStack --capabilities CAPABILITY_NAMED_IAM --template-body file://~/environment/aws-modern-application-workshop/module-2/cfn/core.yml
+{
+    "StackId": "arn:aws:cloudformation:us-east-2:362892340528:stack/MythicalMysfitsCoreStack/d6c4f280-699f-11eb-a3c5-06ffad9cc746"
+}
+----
+
